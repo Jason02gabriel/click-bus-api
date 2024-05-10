@@ -1,6 +1,8 @@
 package com.biel.clickbus.service;
 
 import com.biel.clickbus.dtos.PlaceDTO;
+import com.biel.clickbus.exception.CItyNotFoundException;
+import com.biel.clickbus.exception.NotFoundException;
 import com.biel.clickbus.model.Place;
 import com.biel.clickbus.repository.PlaceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +68,7 @@ public class PlaceService {
         for (Place place : Places) {
             PlacesDTO.add(new PlaceDTO(place.getName(), place.getSlug(), place.getCity(), place.getState(), place.getCreated_at(), place.getUpdated_at()));
         }
+        if (PlacesDTO.isEmpty()) throw new CItyNotFoundException("City not found");
         return PlacesDTO;
     }
 
@@ -75,6 +78,7 @@ public class PlaceService {
         for (Place place : Places) {
             PlacesDTO.add(new PlaceDTO(place.getName(), place.getSlug(), place.getCity(), place.getState(), place.getCreated_at(), place.getUpdated_at()));
         }
+        if (PlacesDTO.isEmpty()) throw new NotFoundException("State not found");
         return PlacesDTO;
     }
 }

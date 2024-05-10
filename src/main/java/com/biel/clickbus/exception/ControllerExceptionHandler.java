@@ -24,6 +24,20 @@ public class ControllerExceptionHandler {
         return ResponseEntity.badRequest().body(exceptionDTO);
     }
 
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity findStateException(NotFoundException e) {
+
+        ExceptionDTO exceptionDTO = new ExceptionDTO("Enter a valid state", "400");
+        return ResponseEntity.badRequest().body(exceptionDTO);
+    }
+
+    @ExceptionHandler(CItyNotFoundException.class)
+    public ResponseEntity findCityException(CItyNotFoundException e) {
+
+        ExceptionDTO exceptionDTO = new ExceptionDTO("Enter a valid city", "400");
+        return ResponseEntity.badRequest().body(exceptionDTO);
+    }
+
 
 
 
