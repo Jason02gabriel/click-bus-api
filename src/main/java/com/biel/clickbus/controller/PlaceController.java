@@ -52,5 +52,15 @@ public class PlaceController {
         return ResponseEntity.ok(service.findByNameLike(name));
     }
 
+    @GetMapping("/search/city/{city}")
+    public ResponseEntity<List<PlaceDTO>> findByCity(@PathVariable String city){
+        return ResponseEntity.ok(service.findByCity(city));
+    }
+
+    @GetMapping("/search/state/{state}")
+    public ResponseEntity<List<PlaceDTO>> findByState(@PathVariable String state){
+        return ResponseEntity.ok(service.findByState(state));
+    }
+
 
 }

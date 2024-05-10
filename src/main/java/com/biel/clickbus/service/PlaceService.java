@@ -59,4 +59,22 @@ public class PlaceService {
         }
         return PlacesDTO;
     }
+
+    public List<PlaceDTO> findByCity(String city){
+        List<Place> Places = placeRepository.findByCityIgnoreCase(city);
+        List<PlaceDTO> PlacesDTO = new ArrayList<>();
+        for (Place place : Places) {
+            PlacesDTO.add(new PlaceDTO(place.getName(), place.getSlug(), place.getCity(), place.getState(), place.getCreated_at(), place.getUpdated_at()));
+        }
+        return PlacesDTO;
+    }
+
+    public List<PlaceDTO> findByState(String state){
+        List<Place> Places = placeRepository.findByStateIgnoreCase(state);
+        List<PlaceDTO> PlacesDTO = new ArrayList<>();
+        for (Place place : Places) {
+            PlacesDTO.add(new PlaceDTO(place.getName(), place.getSlug(), place.getCity(), place.getState(), place.getCreated_at(), place.getUpdated_at()));
+        }
+        return PlacesDTO;
+    }
 }
