@@ -34,7 +34,7 @@ git clone https://github.com/Jason02gabriel/click-bus-api.git
 ## API Endpoints
 The API provides the following endpoints:
 
-**API TO-DO-LIST**
+**API CLIK-BUS**
 ```markdown
 POST /places - Create a new place
 GET /places - Retrieve all places
